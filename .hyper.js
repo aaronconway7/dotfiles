@@ -4,6 +4,7 @@
 
 module.exports = {
     config: {
+        
         // choose either `'stable'` for receiving highly polished,
         // or `'canary'` for less polished but more frequent updates
         updateChannel: "stable",
@@ -12,11 +13,10 @@ module.exports = {
         fontSize: 12,
 
         // font family with optional fallbacks
-        fontFamily:
-            '"Fira Code", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+        fontFamily: '"Fira Code", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
         // default font weight: 'normal' or 'bold'
-        fontWeight: "normal",
+        fontWeight: "bold",
 
         // font weight for bold characters: 'normal' or 'bold'
         fontWeightBold: "bold",
@@ -31,14 +31,15 @@ module.exports = {
         cursorShape: "BLOCK",
 
         // set to `true` (without backticks and without quotes) for blinking cursor
-        cursorBlink: false,
+        cursorBlink: true,
 
         // color of the text
         foregroundColor: "#fff",
 
         // terminal background color
         // opacity is only supported on macOS
-        backgroundColor: "#000",
+        backgroundColor: "rgba(0,0,0,0.95)",
+        // backgroundColor: "rgba(38, 51, 65, 1.000)",
 
         // terminal selection color
         selectionColor: "rgba(248,28,229,0.3)",
@@ -47,7 +48,13 @@ module.exports = {
         borderColor: "#333",
 
         // custom CSS to embed in the main window
-        css: "",
+        css: `
+            .tabs_title .tab_process.process_shell:before,
+            .tab_tab.tab_active .tab_process.process_shell:before,
+            .tab_tab:hover .tab_process.process_shell:before {
+                background-color: #fffa72;
+            }
+        `,
 
         // custom CSS to embed in the terminal window
         termCSS: "",
@@ -62,7 +69,7 @@ module.exports = {
         showWindowControls: "",
 
         // custom padding (CSS format, i.e.: `top right bottom left`)
-        padding: "12px 14px",
+        padding: "12px 14px 50px 14px",
 
         // the full list. if you're going to provide the full color palette,
         // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -127,13 +134,29 @@ module.exports = {
 
         verminal: {
             fontFamily: '"Fira Code"',
-            fontSize: 12
+            fontSize: 12,
+            fontWeight: "bold",
         },
 
         hyperBorder: {
             borderRadiusInner: "5px",
             borderRadiusOuter: "5px",
             animate: true
+        },
+
+        hyperline: {                                                                 
+            plugins: [                                                    
+                "ip",                                                                    
+                "cpu",
+                "network",                                                                   
+                "spotify",
+                "battery"                                                              
+            ]                                                                          
+        },
+
+        hyperTabs: {
+            border: true,
+            tabIconsColored: true,
         }
     },
 
@@ -144,14 +167,17 @@ module.exports = {
     //   `@company/project`
     //   `project#1.0.1`
     plugins: [
-        // "verminal",
+        "verminal",
         "hypercwd",
         "hyperterm-tabs",
         "hyperlinks",
-        "hyperborder",
-        "hyper-tab-icons",
-        "hyperpower"
-        // "hyperline"
+        //   "hyperborder",
+        //   "hyper-tab-icons",
+        "hyperpower",
+        "hyperline",
+        //   "hyper-search",
+        //   'hyper-statusline',
+        "hyper-tabs-enhanced",
     ],
 
     // in development, you can create a directory under
