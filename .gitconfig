@@ -1,0 +1,12 @@
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[user]
+	name = aaronconway7
+	email = aaronconway796@gmail.com
+[alias]
+	publish-branch = push -u origin
+	switch-branch = checkout
+	create-branch = checkout -b

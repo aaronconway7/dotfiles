@@ -157,6 +157,12 @@ module.exports = {
         hyperTabs: {
             border: true,
             tabIconsColored: true,
+        },
+
+        hyperTransparent: {
+            // backgroundColor: '#4b4',
+            opacity: 0.2,
+            vibrancy: 'dark' // ['', 'dark', 'medium-light', 'ultra-dark']
         }
     },
 
@@ -178,6 +184,7 @@ module.exports = {
         //   "hyper-search",
         //   'hyper-statusline',
         "hyper-tabs-enhanced",
+        "hyper-transparent"
     ],
 
     // in development, you can create a directory under
