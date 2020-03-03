@@ -10,3 +10,4 @@
 	publish-branch = push -u origin
 	switch-branch = checkout
 	create-branch = checkout -b
+	discard-changes = checkout -- .
